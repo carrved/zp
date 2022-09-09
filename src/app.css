@@ -6,7 +6,8 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  background: radial-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.5)), url('https://64.media.tumblr.com/9e19f5a112f04a3cf9b2a2426daac333/tumblr_pte1o02Pju1uzwgsuo1_400.gif');
+  background-size: 100% auto;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;

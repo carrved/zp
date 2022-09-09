@@ -1,6 +1,9 @@
 <script>
     import "fluent-svelte/theme.css";
     import { Button } from 'fluent-svelte';
+    import { fade, slide } from 'svelte/transition';
+    import { quintOut } from 'svelte/easing';
+    import { onMount } from "svelte";
 
     function iframe(urlin) {
         let win = window.open();
@@ -28,20 +31,33 @@
     const n = () => {
         iframe("https://tranquil-naiad-f698d2.netlify.app/nightmare/nightmare.html")
     }
+
+    const e = () => {
+        iframe("https://extrememath.net/");
+    }
+
+    let ready = false;
+    onMount(() => ready = true);
 </script>
+{#if ready}
+<div in:fade="{{delay: 100, duration: 1000, easing: quintOut }}" class="buttons">
+    <Button on:click={tm}>
+        t
+    </Button>
 
-<Button variant="accent" on:click={tm}>
-    t
-</Button>
+    <Button on:click={v}>
+        v
+    </Button>
 
-<Button variant="accent" on:click={v}>
-    v
-</Button>
+    <Button on:click={inv}>
+        i
+    </Button>
 
-<Button variant="accent" on:click={inv}>
-    i
-</Button>
-
-<Button variant="accent" on:click={n}>
-    n
-</Button>
+    <Button on:click={n}>
+        n
+    </Button>
+    <Button on:click={e}>
+        e
+    </Button>
+</div>
+{/if}
